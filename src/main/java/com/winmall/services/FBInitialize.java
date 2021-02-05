@@ -14,7 +14,7 @@ public class FBInitialize {
     public void initialize(){
         try{
             FileInputStream serviceAccount =
-                    new FileInputStream("fir-db-for-spring-boot-dcb10-firebase-adminsdk-msx1b-f9a67d06cb.json");
+                    new FileInputStream("./serviceaccount.json");
 
             FirebaseOptions options = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(serviceAccount))

@@ -1,5 +1,6 @@
 package com.winmall.controller;
 
+import com.google.cloud.firestore.QueryDocumentSnapshot;
 import com.winmall.entity.Branches;
 import com.winmall.services.BranchService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,12 @@ public class BranchController {
     @Autowired
     BranchService branchService;
 
-    @RequestMapping("/getBranchDetails")
+    @GetMapping("/getAllBranches")
+    public Branches getAllBranches() throws InterruptedException, ExecutionException{
+        return branchService.getAllBranches();
+    }
+
+    @GetMapping("/getBranchDetails")
     public Branches getBranch(@RequestParam String name ) throws InterruptedException, ExecutionException {
         return branchService.getBranchDetails(name);
     }
