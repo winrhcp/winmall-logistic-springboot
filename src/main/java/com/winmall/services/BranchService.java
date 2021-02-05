@@ -1,20 +1,29 @@
 package com.winmall.services;
 
+import com.google.cloud.firestore.*;
 import com.winmall.entity.Branches;
 import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
-import com.google.cloud.firestore.WriteResult;
 import com.google.firebase.cloud.FirestoreClient;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 //CRUD Operation
 @Service
 public class BranchService {
-    public static final String COL_NAME="users";
+    public static final String COL_NAME="branches";
+
+    public Branches getAllBranches() throws InterruptedException, ExecutionException{
+        Firestore dbFirestore = FirestoreClient.getFirestore();
+        ApiFuture<DocumentSnapshot> apiFuture = dbFirestore.document(COL_NAME+"/8nEmLN1HLEMwSOBDrhWc").get();
+        DocumentSnapshot documentSnapshot = apiFuture.get();
+//        ApiFuture<QuerySnapshot> query = dbFirestore.collection(COL_NAME).get();
+//        QuerySnapshot querySnapshot = query.get();
+//        List<QueryDocumentSnapshot> documents = querySnapshot.getDocuments();
+
+        return documentSnapshot.toObject(Branches.class);
+    }
 
     public String saveBranchDetails(Branches branch) throws InterruptedException, ExecutionException {
         Firestore dbFirestore = FirestoreClient.getFirestore();

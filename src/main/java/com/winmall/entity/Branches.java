@@ -7,10 +7,14 @@ public class Branches {
     private String btel;
 
     public Branches(String bname, String blocation, String bsize, String btel) {
-//        this.bname = bname;
-//        this.blocation = blocation;
-//        this.bsize = bsize;
-//        this.btel = btel;
+        this.bname = bname;
+        this.blocation = blocation;
+        this.bsize = bsize;
+        this.btel = btel;
+    }
+
+    public Branches() {
+
     }
 
     public String getBname() {
