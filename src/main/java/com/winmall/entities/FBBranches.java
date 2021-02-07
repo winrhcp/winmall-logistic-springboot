@@ -1,19 +1,20 @@
-package com.winmall.entity;
+package com.winmall.entities;
 
-public class Branches {
+//cloud firestore entity
+public class FBBranches {
     private String bname;
     private String blocation;
     private String bsize;
     private String btel;
 
-    public Branches(String bname, String blocation, String bsize, String btel) {
+    public FBBranches(String bname, String blocation, String bsize, String btel) {
         this.bname = bname;
         this.blocation = blocation;
         this.bsize = bsize;
         this.btel = btel;
     }
 
-    public Branches() {
+    public FBBranches() {
 
     }
 
